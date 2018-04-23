@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     @post = Post.find_by_id(params[:id])
     erb :show
   end
-  
+
 
 
 
