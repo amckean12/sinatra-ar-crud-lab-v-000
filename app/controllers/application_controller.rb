@@ -8,7 +8,22 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  get '/' do
-
+  #a route in your controller, `get '/posts/new'`, that renders the `new.erb` view.
+  get '/posts/new' do
+    erb :new
   end
+
+  post '/posts' do
+    @post = Post.create(params)
+    redirect to '/posts'
+  end
+
+  get '/posts' do
+    @posts = Post.all
+    erb :index
+  end
+  
+
+
+
 end
